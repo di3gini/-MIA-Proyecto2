@@ -1,3 +1,5 @@
+import { AuthService } from './../services/auth.service';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
@@ -17,10 +19,14 @@ import { ModalModule } from "ngx-bootstrap/modal";
 import { JwBootstrapSwitchNg2Module } from "jw-bootstrap-switch-ng2";
 import { PopoverModule } from "ngx-bootstrap/popover";
 
+
 import { IndexComponent } from "./index/index.component";
 import { ProfilepageComponent } from "./examples/profilepage/profilepage.component";
 import { RegisterpageComponent } from "./examples/registerpage/registerpage.component";
 import { LandingpageComponent } from "./examples/landingpage/landingpage.component";
+import { FooterBarComponent } from './page-parts/footer-bar/footer-bar.component';
+import { NavBarComponent } from './page-parts/nav-bar/nav-bar.component';
+
 
 @NgModule({
   imports: [
@@ -45,7 +51,10 @@ import { LandingpageComponent } from "./examples/landingpage/landingpage.compone
     IndexComponent,
     ProfilepageComponent,
     RegisterpageComponent,
-    LandingpageComponent
+    LandingpageComponent,
+    FooterBarComponent,
+    NavBarComponent,
+
   ],
   exports: [
     IndexComponent,
@@ -53,6 +62,6 @@ import { LandingpageComponent } from "./examples/landingpage/landingpage.compone
     RegisterpageComponent,
     LandingpageComponent
   ],
-  providers: []
+  providers: [AuthService]
 })
 export class PagesModule {}

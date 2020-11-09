@@ -9,9 +9,9 @@
         class="navbar-brand"
         [routerLink]="['/home']"
         placement="bottom"
-        tooltip="Designed and Coded by Creative Tim"
+        tooltip="Bienvenido"
       >
-        <span> BLK• </span> Design System Angular
+        <span> GT-Sales• </span> Tu sitio de confianza
       </a>
       <button
         aria-controls="navigation-index"
@@ -34,7 +34,7 @@
     >
       <div class="navbar-collapse-header">
         <div class="row">
-          <div class="col-6 collapse-brand"><a> BLK• </a></div>
+          <div class="col-6 collapse-brand"><a> GT-Sales• </a></div>
           <div class="col-6 collapse-close text-right">
             <button
               aria-controls="navigation-index"
@@ -54,10 +54,10 @@
         <li class="nav-item p-0">
           <a
             class="nav-link"
-            href="https://twitter.com/CreativeTim"
+            href="https://twitter.com/Di3gini"
             placement="bottom"
             target="_blank"
-            tooltip="Follow us on Twitter"
+            tooltip="Sigueme en twitter"
           >
             <i class="fab fa-twitter"> </i>
             <p class="d-lg-none d-xl-none">Twitter</p>
@@ -66,7 +66,7 @@
         <li class="nav-item p-0">
           <a
             class="nav-link"
-            href="https://www.facebook.com/CreativeTim"
+            href="https://www.facebook.com/di3gini"
             placement="bottom"
             target="_blank"
             tooltip="Like us on Facebook"
@@ -78,7 +78,7 @@
         <li class="nav-item p-0">
           <a
             class="nav-link"
-            href="https://www.instagram.com/CreativeTimOfficial"
+            href="https://www.instagram.com/di3gini"
             placement="bottom"
             target="_blank"
             tooltip="Follow us on Instagram"
@@ -88,15 +88,16 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/home']"> Back to Kit </a>
+          <a class="nav-link" [routerLink]="['/home']"> Regresar a Inicio </a>
         </li>
         <li class="nav-item">
-          <a
-            class="nav-link"
-            href="https://github.com/creativetimofficial/blk-design-system-angular/issues"
-          >
-            Have an issue?
-          </a>
+          <button
+          class="btn btn-success"
+          data-target="#myModal2"
+          (click)="myModal2.show()"
+        >
+          Login
+        </button>
         </li>
       </ul>
     </div>
@@ -119,10 +120,10 @@
                   src="assets/img/square1-red.png"
                 />
 
-                <h4 class="card-title">Register</h4>
+                <h4 class="card-title">Registrar</h4>
               </div>
               <div class="card-body">
-                <form class="form">
+                <form class="form" #frmRegister="ngForm" (ngSubmit)="onRegister(frmRegister)" >
                   <div
                     class="input-group"
                     [ngClass]="{ 'input-group-focus': focus === true }"
@@ -133,13 +134,59 @@
                       </div>
                     </div>
                     <input
+                      name="nombre"
                       class="form-control"
-                      placeholder="Full Name"
+                      placeholder="Nombres"
                       type="text"
                       (focus)="focus = true"
                       (blur)="focus = false"
+                      required = "true"
+                      ngModel
                     />
+                    
                   </div>
+                  <div
+                  class="input-group"
+                  [ngClass]="{ 'input-group-focus': focus3 === true }"
+                >
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <i class="tim-icons icon-single-02"> </i>
+                    </div>
+                  </div>
+                  <input
+                    name="apellido"
+                    class="form-control"
+                    placeholder="Apellidos"
+                    type="text"
+                    (focus)="focus3 = true"
+                    (blur)="focus3 = false"
+                    required = "true"
+                    ngModel
+                  />
+                 
+                </div>
+                <div
+                class="input-group"
+                [ngClass]="{ 'input-group-focus': focus4 === true }"
+              >
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                    <i class="tim-icons icon-calendar-60"> </i>
+                  </div>
+                </div>
+                <input 
+                ngModel
+                (focus)="focus4 = true"
+                (blur)="focus4 = false"
+                name = "nacimiento"
+                type="text"
+                placeholder="Nacimiento"
+                class="form-control"
+                bsDatepicker
+                [bsConfig]="{ isAnimated: true, containerClass: 'theme-red' }">
+                
+              </div>
                   <div
                     class="input-group"
                     [ngClass]="{ 'input-group-focus': focus1 === true }"
@@ -150,13 +197,17 @@
                       </div>
                     </div>
                     <input
+                    ngModel
+                      name="email"
                       class="form-control"
                       placeholder="Email"
                       type="text"
                       (focus)="focus1 = true"
                       (blur)="focus1 = false"
+                      required = "true"
                     />
                   </div>
+
                   <div
                     class="input-group"
                     [ngClass]="{ 'input-group-focus': focus2 === true }"
@@ -167,31 +218,42 @@
                       </div>
                     </div>
                     <input
+                    ngModel
+                      name="password"
                       class="form-control"
-                      placeholder="Password"
-                      type="text"
+                      placeholder="Contraseña"
+                      type="password"
                       (focus)="focus2 = true"
                       (blur)="focus2 = false"
                     />
-                  </div>
-                  <div class="form-check text-left">
-                    <label class="form-check-label">
-                      <input class="form-check-input" type="checkbox" />
 
-                      <span class="form-check-sign"> </span> I agree to the
-                      <a href="javascript:void(0)"> terms and conditions </a> .
-                    </label>
                   </div>
+                  <div
+                  class="input-group"
+                  [ngClass]="{ 'input-group-focus': focus2 === true }"
+                >
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <i class="tim-icons icon-lock-circle"> </i>
+                    </div>
+                  </div>
+                  <input
+                  ngModel
+                    name="passwordC"
+                    class="form-control"
+                    placeholder="Confirmar contraseña"
+                    type="password"
+                    (focus)="focus2 = true"
+                    (blur)="focus2 = false"
+                  />
+
+                </div>
+                <div class="card-footer">
+                  <input type="submit" class="btn btn-danger btn-round btn-lg" value="Registrarse">
+                </div>
                 </form>
               </div>
-              <div class="card-footer">
-                <a
-                  class="btn btn-danger btn-round btn-lg"
-                  href="javascript:void(0)"
-                >
-                  Get Started
-                </a>
-              </div>
+
             </div>
           </div>
         </div>
@@ -205,6 +267,90 @@
       </div>
     </div>
   </div>
+  <div
+    aria-hidden="true"
+    aria-labelledby="myModalLabel"
+    bsModal
+    class="modal fade modal-black"
+    #myModal2="bs-modal"
+    id="myModal2"
+    role="dialog"
+    tabindex="-1"
+  >
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header justify-content-center">
+        <button
+          aria-hidden="true"
+          class="close"
+          data-dismiss="modal"
+          (click)="myModal2.hide()"
+          type="button"
+        >
+          <i class="tim-icons icon-simple-remove text-white"> </i>
+        </button>
+        <div class="text-muted text-center ml-auto mr-auto">
+          <h3 class="mb-0">Bienvenido</h3>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="text-center text-muted mb-4 mt-3">
+          <small> Ingresa tus datos </small>
+        </div>
+        <form role="form" #frmLogin="ngForm" (ngSubmit)="ongLogin(frmLogin)">
+          <div class="form-group mb-3">
+            <div
+              class="input-group input-group-alternative"
+              [ngClass]="{ 'input-group-focus': focus1 === true }"
+            >
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="tim-icons icon-email-85"> </i>
+                </span>
+              </div>
+              <input
+                name="email"
+                class="form-control"
+                placeholder="Email"
+                type="email"
+                (focus)="focus1 = true"
+                (blur)="focus1 = false"
+                ngModel
+                required
+              />
+            </div>
+          </div>
+          <div class="form-group">
+            <div
+              class="input-group input-group-alternative"
+              [ngClass]="{ 'input-group-focus': focus2 === true }"
+            >
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="tim-icons icon-key-25"> </i>
+                </span>
+              </div>
+              <input
+              name="password"
+                class="form-control"
+                placeholder="Contraseña"
+                type="password"
+                (focus)="focus2 = true"
+                (blur)="focus2 = false"
+                ngModel
+                required
+              />
+            </div>
+          </div>
+          <div class="text-center">
+            <input type="submit" class="btn btn-primary my-4" value="Login">
+              
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
   <footer class="footer">
     <div class="container">
       <div class="row">

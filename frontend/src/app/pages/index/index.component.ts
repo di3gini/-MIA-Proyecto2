@@ -1,11 +1,18 @@
+import { Router } from '@angular/router';
+import { AuthService } from './../../services/auth.service';
+
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import noUiSlider from "nouislider";
+
 
 @Component({
   selector: "app-index",
   templateUrl: "index.component.html"
 })
 export class IndexComponent implements OnInit, OnDestroy {
+
+  constructor(private authService: AuthService, private router: Router){ }
+
   isCollapsed = true;
   focus;
   focus1;
@@ -13,10 +20,16 @@ export class IndexComponent implements OnInit, OnDestroy {
   date = new Date();
   pagination = 3;
   pagination1 = 1;
-  constructor() {}
+  
   scrollToDownload(element: any) {
     element.scrollIntoView({ behavior: "smooth" });
   }
+
+  logout(){
+    this.authService.logout();
+    this.router.navigateByUrl('/register');
+  }
+
   ngOnInit() {
     var body = document.getElementsByTagName("body")[0];
     body.classList.add("index-page");

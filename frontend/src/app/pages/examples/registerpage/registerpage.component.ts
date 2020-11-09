@@ -1,5 +1,6 @@
+import { AuthService } from './../../../services/auth.service';
 import { Component, OnInit, OnDestroy, HostListener } from "@angular/core";
-
+import { Router } from '@angular/router';
 @Component({
   selector: "app-registerpage",
   templateUrl: "registerpage.component.html"
@@ -9,7 +10,11 @@ export class RegisterpageComponent implements OnInit, OnDestroy {
   focus;
   focus1;
   focus2;
-  constructor() {}
+  focus3;
+  focus4;
+  focus5;
+  focus6;
+  
   @HostListener("document:mousemove", ["$event"])
   onMouseMove(e) {
     var squares1 = document.getElementById("square1");
@@ -74,6 +79,22 @@ export class RegisterpageComponent implements OnInit, OnDestroy {
       "deg)";
   }
 
+  constructor(private authService: AuthService, private router: Router){ }
+
+  ongLogin(form): void{
+    this.authService.login(form.value).subscribe(res => {
+      console.log('Login', form.value)
+      this.router.navigateByUrl('/home');
+    });
+    
+  }
+
+  onRegister(form): void{
+    this.authService.register(form.value).subscribe(res=> {
+      console.log('Registro', form.value)
+      
+    })
+  }
   ngOnInit() {
     var body = document.getElementsByTagName("body")[0];
     body.classList.add("register-page");
