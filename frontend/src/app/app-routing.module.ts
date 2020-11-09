@@ -8,6 +8,8 @@ import { IndexComponent } from "./pages/index/index.component";
 import { ProfilepageComponent } from "./pages/examples/profilepage/profilepage.component";
 import { RegisterpageComponent } from "./pages/examples/registerpage/registerpage.component";
 import { LandingpageComponent } from "./pages/examples/landingpage/landingpage.component";
+import { CrearProductoComponent } from './pages/productos/crear-producto/crear-producto.component';
+import { VerProductoComponent } from './pages/productos/ver-producto/ver-producto.component';
 
 
 const routes: Routes = [
@@ -15,7 +17,9 @@ const routes: Routes = [
   { path: "home", component: IndexComponent ,canActivate: [AuthGuard]},
   { path: "profile", component: ProfilepageComponent, canActivate: [AuthGuard]},
   { path: "register", component: RegisterpageComponent },
-  { path: "landing", component: LandingpageComponent }
+  { path: "landing", component: LandingpageComponent },
+  { path: "ver-producto", component: VerProductoComponent, canActivate: [AuthGuard]},
+  { path: "crear-producto", component: CrearProductoComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

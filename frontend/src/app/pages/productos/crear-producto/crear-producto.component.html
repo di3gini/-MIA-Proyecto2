@@ -1,0 +1,78 @@
+<app-nav-bar></app-nav-bar>
+<div class="wrapper">
+    <section class="section section-lg">
+      <section class="section">
+        <img class="path" src="assets/img/path4.png" />
+  
+        <div class="container">
+          <div class="row row-grid justify-content-between">
+            <div class="col-md-5 mt-lg-5">
+                <form>
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="inputEmail4">Nombre</label>
+                        <input type="text" class="form-control" id="txtNombre" placeholder="Nombre" required>
+                      </div>
+                      <div class="form-group col-md-6">
+                        
+                      </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword4">Descripción</label>
+                        <input type="text" class="form-control" id="txtDescripcion" placeholder="Inserta la descripcion de tu producto aqui">
+                        
+                    </div>
+                    <div class="form-group">
+                      <label for="inputAddress">Palabras claves</label>
+                      <input type="text" class="form-control" id="txtClaves" placeholder="Palabras por las que buscar tu producto.">
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="inputCity">Precio</label>
+                        <input type="number" class="form-control" id="txtPrecio" placeholder="Q 0.00" required>
+                      </div>
+                      <div class="form-group col-md-4">
+                        <label for="inputState">Categoría</label>
+                        <select id="inputState" class="form-control">
+                          <option selected>Elegir</option>
+                          <option>...</option>
+                        </select>
+                      </div>
+                      <div class="form-group col-md-2">
+                        <label for="inputZip">Zip</label>
+                        <input type="text" class="form-control" id="inputZip">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="fileImagen">Cargar imagen</label>
+                      <input type="file" accept="image/*" id="fileImagen" placeholder="Carga una imagen de tu producto">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Cargar producto</button>
+                  </form>
+            </div>
+            <div class="col-md-6">
+              <div class="pl-md-5">
+                <h1>
+                  Carga tu producto <br />
+  
+                  Y mira como se vende
+                </h1>
+                <p>
+                  En este apartado seras capaz de poder cargar tu producto, para 
+                  que miles de usuarios puedan ser capaces de ver lo que ofreces, 
+                  y tu como tus ventas se elevan. 
+                </p>
+                <br />
+                <br />
+
+                <img class="img-fluid floating" src="assets/img/default-product.jpg"  />
+
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+    <app-footer-bar></app-footer-bar>
+  </div>

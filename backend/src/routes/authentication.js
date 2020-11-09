@@ -200,7 +200,7 @@ router.get('/confirmAccount', async (req, res) => {
 
 router.get('/recover_password', async (req, res) => {
     
-    const resultado = await pool.simpleExecute('SELECT * FROM "TEST"."USUARIO"');
+    const resultado = await pool.simpleExecute('SELECT CONTRASENA FROM "TEST"."USUARIO"');
     console.log(resultado);
     res.send(resultado);
 });

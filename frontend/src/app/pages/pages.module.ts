@@ -26,6 +26,9 @@ import { RegisterpageComponent } from "./examples/registerpage/registerpage.comp
 import { LandingpageComponent } from "./examples/landingpage/landingpage.component";
 import { FooterBarComponent } from './page-parts/footer-bar/footer-bar.component';
 import { NavBarComponent } from './page-parts/nav-bar/nav-bar.component';
+import { CrearProductoComponent } from './productos/crear-producto/crear-producto.component';
+import { VerProductoComponent } from './productos/ver-producto/ver-producto.component';
+import { PerfilComponent } from './usuario/perfil/perfil.component';
 
 
 @NgModule({
@@ -54,13 +57,18 @@ import { NavBarComponent } from './page-parts/nav-bar/nav-bar.component';
     LandingpageComponent,
     FooterBarComponent,
     NavBarComponent,
+    CrearProductoComponent,
+    VerProductoComponent,
+    PerfilComponent,
 
   ],
   exports: [
     IndexComponent,
     ProfilepageComponent,
     RegisterpageComponent,
-    LandingpageComponent
+    LandingpageComponent,
+    CrearProductoComponent,
+    VerProductoComponent
   ],
   providers: [AuthService]
 })
