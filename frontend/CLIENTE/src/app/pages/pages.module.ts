@@ -29,6 +29,11 @@ import { NavBarComponent } from './page-parts/nav-bar/nav-bar.component';
 import { CrearProductoComponent } from './productos/crear-producto/crear-producto.component';
 import { VerProductoComponent } from './productos/ver-producto/ver-producto.component';
 import { PerfilComponent } from './usuario/perfil/perfil.component';
+import { LoginComponent } from './admin/login/login.component';
+import { CrearCategoriaComponent } from './admin/crear-categoria/crear-categoria.component';
+import { ReportesComponent } from './admin/reportes/reportes.component';
+import { DenunciasComponent } from './admin/denuncias/denuncias.component';
+import { AdminNavComponent } from './page-parts/admin-nav/admin-nav.component';
 
 
 @NgModule({
@@ -60,6 +65,11 @@ import { PerfilComponent } from './usuario/perfil/perfil.component';
     CrearProductoComponent,
     VerProductoComponent,
     PerfilComponent,
+    LoginComponent,
+    CrearCategoriaComponent,
+    ReportesComponent,
+    DenunciasComponent,
+    AdminNavComponent,
 
   ],
   exports: [

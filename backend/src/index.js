@@ -35,6 +35,7 @@ app.use('/api',require('./routes'))
 app.use('/api/auth',require('./routes/authentication'))
 app.use('/links',require('./routes/links'))
 app.use('/api', require('./routes/profile'))
+app.use('/api/admin', require('./routes/admin'))
 
 
 //Public
