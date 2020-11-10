@@ -36,10 +36,18 @@ app.use('/api/auth',require('./routes/authentication'))
 app.use('/links',require('./routes/links'))
 app.use('/api', require('./routes/profile'))
 app.use('/api/admin', require('./routes/admin'))
+app.use('/api/products', require('./routes/products'))
 
 
 //Public
 app.use(express.static(path.join(__dirname,'public')))
+app.use(express.static(path.join(__dirname,'uploads/productos')));
+app.use(express.static('uploads'));
+app.use(express.static(__dirname));
+
+app.get('/:img', function(req, res){
+    res.sendFile( __dirname + `/routes/uploads/${req.params.img}` );
+}); 
 
 //Starting the server
 app.listen(app.get('port'), () => {

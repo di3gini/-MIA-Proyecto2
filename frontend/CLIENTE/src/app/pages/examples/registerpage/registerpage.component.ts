@@ -83,7 +83,7 @@ export class RegisterpageComponent implements OnInit, OnDestroy {
 
   ongLogin(form): void{
     this.authService.login(form.value).subscribe(res => {
-      console.log('Login', form.value)
+      console.log(form.value)
       this.router.navigateByUrl('/home');
     });
     

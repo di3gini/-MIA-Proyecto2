@@ -35,7 +35,7 @@ export class AuthService {
         (res: JwtResponse) => {
           if (res){
             //guardar token
-            this.saveToken(res.token, res.expires);
+            this.saveToken(res.token, res.expires, res.user, res.id);
             console.log(res)
           }
         }
@@ -79,13 +79,17 @@ export class AuthService {
     this.token = '';
     localStorage.removeItem("ACCESS_TOKEN")
     localStorage.removeItem("EXPIRES_IN")
+    localStorage.removeItem("USER_EMAIL")
+    localStorage.removeItem("USER_ID")
     console.log("Logged out")
     
   }
 
-  private saveToken(token: string, expiresIn: string): void{
+  private saveToken(token: string, expiresIn: string, mail: string, id_usuario: number): void{
     localStorage.setItem("ACCESS_TOKEN", token);
     localStorage.setItem("EXPIRES_IN", expiresIn);
+    localStorage.setItem("USER_EMAIL", mail);
+    localStorage.setItem("USER_ID", id_usuario.toString())
     this.token = token
   }
 
