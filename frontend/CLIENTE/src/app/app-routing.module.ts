@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: "profile", component: ProfilepageComponent, canActivate: [AuthGuard]},
   { path: "register", component: RegisterpageComponent },
   { path: "landing", component: LandingpageComponent },
-  { path: "ver-producto", component: VerProductoComponent, canActivate: [AuthGuard]},
+  { path: "ver-producto", component: VerProductoComponent},
   { path: "crear-producto", component: CrearProductoComponent, canActivate: [AuthGuard]},
   { path: "admin/login", component: LoginComponent},
   { path: "admin/crear-categoria", component: CrearCategoriaComponent}

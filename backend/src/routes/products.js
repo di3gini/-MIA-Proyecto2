@@ -79,6 +79,16 @@ router.get('/getCategoria', async (rez, res) => {
     
     res.status(200).json(categoria);
 });
+
+router.get('/getProducto', async (req, res) => {
+    const sql = "SELECT * FROM PRODUCTO WHERE IDPRODUCTO = :pro_id ";
+    conectar()
+    const resultado = await pool.simpleExecute(sql,{
+        pro_id: req.query.id
+    })
+    const enviar = resultado.rows;
+    res.status(200).json(enviar);
+});
 async function insertarLog(descripcion){
     const query = 'INSERT INTO "TEST"."LOG" (DESCRIPCION, FECHA) ' +
     "VALUES (:log_desc, :log_fecha)"
