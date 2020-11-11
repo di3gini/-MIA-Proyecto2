@@ -1,3 +1,4 @@
+import { CarritoComponent } from './pages/usuario/carrito/carrito.component';
 import { BuscarProductoComponent } from './pages/productos/buscar-producto/buscar-producto.component';
 import { LoginComponent } from './pages/admin/login/login.component';
 
@@ -15,6 +16,7 @@ import { CrearProductoComponent } from './pages/productos/crear-producto/crear-p
 import { VerProductoComponent } from './pages/productos/ver-producto/ver-producto.component';
 import { CrearCategoriaComponent } from './pages/admin/crear-categoria/crear-categoria.component';
 
+
 const routes: Routes = [
   { path: "", redirectTo: "register", pathMatch: "full" },
   { path: "home", component: IndexComponent ,canActivate: [AuthGuard]},
@@ -25,7 +27,8 @@ const routes: Routes = [
   { path: "crear-producto", component: CrearProductoComponent, canActivate: [AuthGuard]},
   { path: "admin/login", component: LoginComponent},
   { path: "admin/crear-categoria", component: CrearCategoriaComponent},
-  { path: "buscar-producto", component: BuscarProductoComponent}
+  { path: "buscar-producto", component: BuscarProductoComponent},
+  { path: "carrito", component: CarritoComponent}
 ];
 
 @NgModule({
