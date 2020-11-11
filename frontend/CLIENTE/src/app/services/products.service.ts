@@ -1,3 +1,4 @@
+import { categoria } from './../../../../../backend/src/models/categoria.model';
 import { JwtResponse } from './../interfaces/jwt-response';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse, HttpHeaders, HttpClientModule } from '@angular/common/http';
@@ -40,6 +41,13 @@ export class ProductsService {
    }
    getBuscarPro(producto){
     return this.httpClient.get( this.AUTH_SERVER +'/api/products/getBuscarProductos?producto='+producto,
+    {
+      headers: this.headers
+    }).pipe(map(data=>data))
+   }
+   getProductoCat(categoria){
+    
+    return this.httpClient.get( this.AUTH_SERVER +'/api/products/getProductosCat?categoria='+categoria,
     {
       headers: this.headers
     }).pipe(map(data=>data))

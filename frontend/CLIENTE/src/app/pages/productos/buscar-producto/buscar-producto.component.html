@@ -15,7 +15,7 @@
             </form>
                 <div class="form-group col-md-3">
                     
-                    <select ngModel #selectCat id="inputCat" class="form-control" name="selectedCategoria" placeholder="categoria">
+                    <select [(ngModel)]="selectedCat" (change)="productoCat()" #selectCat id="inputCat" class="form-control" name="selectedCategoria" placeholder="categoria">
                         <option *ngFor="let cat of categoria" [value]="cat.IDCATEGORIA" >
                           {{cat.NOMBRE}}
                         </option>

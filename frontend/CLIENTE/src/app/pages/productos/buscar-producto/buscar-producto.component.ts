@@ -15,12 +15,20 @@ export class BuscarProductoComponent implements OnInit {
   server = globals.SERVER + "/"
   categoria
   productos
+  selectedCat
   constructor(private ProductsService: ProductsService, private HttpClient: HttpClient, private router: Router) { }
 
   redirect(id){
     const link = '/ver-producto'
         this.router.navigate([link,{id: id}])
     console.log("redir")
+  }
+
+  productoCat(){
+    this.ProductsService.getProductoCat(this.selectedCat)
+    .subscribe((res:Producto[]) =>{
+      this.productos = res
+    })
   }
 
   async buscarPro(form){
@@ -31,7 +39,7 @@ export class BuscarProductoComponent implements OnInit {
     })
   }
   ordenar(modo){
-    if(modo == "Desc"){
+    if(modo == "Asc"){
       this.productos.sort(function (a, b) {
         if (a.PRECIO > b.PRECIO) {
           return 1;
