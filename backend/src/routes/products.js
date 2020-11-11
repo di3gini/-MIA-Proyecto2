@@ -1,3 +1,4 @@
+
 const express = require('express')
 const router = express.Router()
 const bcrypt = require('bcryptjs')
@@ -89,6 +90,24 @@ router.get('/getProducto', async (req, res) => {
     const enviar = resultado.rows;
     res.status(200).json(enviar);
 });
+router.get('/getProductos', async (req, res) => {
+    const sql = "SELECT * FROM PRODUCTO";
+    conectar()
+    const resultado = await pool.simpleExecute(sql)
+    const enviar = resultado.rows;
+    res.status(200).json(enviar);
+});
+
+router.get('/getBuscarProductos', async (req, res) => {
+    const sql = 'SELECT * FROM PRODUCTO WHERE PALABRAS_CLAVES LIKE :pro_param OR NOMBRE LIKE :pro_param';
+    conectar()
+    const resultado = await pool.simpleExecute(sql, {
+        pro_param: '%'+req.query.producto+'%'
+    })
+    const enviar = resultado.rows;
+    res.status(200).json(enviar);
+});
+
 async function insertarLog(descripcion){
     const query = 'INSERT INTO "TEST"."LOG" (DESCRIPCION, FECHA) ' +
     "VALUES (:log_desc, :log_fecha)"

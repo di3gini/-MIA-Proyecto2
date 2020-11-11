@@ -34,6 +34,7 @@ import { CrearCategoriaComponent } from './admin/crear-categoria/crear-categoria
 import { ReportesComponent } from './admin/reportes/reportes.component';
 import { DenunciasComponent } from './admin/denuncias/denuncias.component';
 import { AdminNavComponent } from './page-parts/admin-nav/admin-nav.component';
+import { BuscarProductoComponent } from './productos/buscar-producto/buscar-producto.component';
 
 
 @NgModule({
@@ -70,6 +71,7 @@ import { AdminNavComponent } from './page-parts/admin-nav/admin-nav.component';
     ReportesComponent,
     DenunciasComponent,
     AdminNavComponent,
+    BuscarProductoComponent,
 
   ],
   exports: [

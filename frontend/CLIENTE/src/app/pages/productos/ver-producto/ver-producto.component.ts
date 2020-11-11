@@ -19,11 +19,8 @@ export class VerProductoComponent implements OnInit {
   id;
   imgSrc
   ngOnInit(): void {
-    this.activatedRoute.queryParams.subscribe(params => {
-      this.id = params['id'];
-      console.log(this.id); // Print the parameter to the console. 
-    });
-  
+    this.id=this.activatedRoute.snapshot.paramMap.get("id");
+ 
 
     this.ProductsService.getProducto(this.id)
     .subscribe((res: Producto[]) => {

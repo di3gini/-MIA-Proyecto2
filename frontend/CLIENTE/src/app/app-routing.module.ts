@@ -1,3 +1,4 @@
+import { BuscarProductoComponent } from './pages/productos/buscar-producto/buscar-producto.component';
 import { LoginComponent } from './pages/admin/login/login.component';
 
 import { AuthGuard } from './guards/auth.guard';
@@ -20,10 +21,11 @@ const routes: Routes = [
   { path: "profile", component: ProfilepageComponent, canActivate: [AuthGuard]},
   { path: "register", component: RegisterpageComponent },
   { path: "landing", component: LandingpageComponent },
-  { path: "ver-producto", component: VerProductoComponent},
+  { path: "ver-producto/:id", component: VerProductoComponent},
   { path: "crear-producto", component: CrearProductoComponent, canActivate: [AuthGuard]},
   { path: "admin/login", component: LoginComponent},
-  { path: "admin/crear-categoria", component: CrearCategoriaComponent}
+  { path: "admin/crear-categoria", component: CrearCategoriaComponent},
+  { path: "buscar-producto", component: BuscarProductoComponent}
 ];
 
 @NgModule({

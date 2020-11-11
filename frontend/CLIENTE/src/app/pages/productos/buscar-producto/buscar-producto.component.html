@@ -1,0 +1,64 @@
+<app-nav-bar></app-nav-bar>
+<div class="wrapper">
+    <section class="section section-lg">
+      <section class="section">
+        <img class="path" src="assets/img/path4.png" />
+        <div class="container">
+            <div class="form-row">
+                <form #frmCrear="ngForm" (ngSubmit)="buscarPro(frmCrear)">
+                <div class="form-group col-md-6">
+                        <input type="text" ngModel class="form-control" name="producto" id="txtBuscar" placeholder="Articulo a buscar...">
+                </div>
+                <div class="form-group col-md-3">
+                    <button type="submit" class="btn btn-primary">Buscar</button>
+                </div>
+            </form>
+                <div class="form-group col-md-3">
+                    
+                    <select ngModel #selectCat id="inputCat" class="form-control" name="selectedCategoria" placeholder="categoria">
+                        <option *ngFor="let cat of categoria" [value]="cat.IDCATEGORIA" >
+                          {{cat.NOMBRE}}
+                        </option>
+                      </select>
+                      <select (change)="ordenar(selectOrden.value)" ngModel #selectOrden id="inputCat" class="form-control" name="selectedCategoria" placeholder="categoria">
+                          <option value="Asc">Ascendente</option>
+                          <option value="Desc">Descendente</option>
+                      </select>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+          <div class="row row-grid justify-content-between">
+            <div class="col-md-12 ">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Imagen</th>
+                            <th>Producto</th>
+                            <th>Descripcion</th>
+                            <th>Precio</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let prod of productos">
+                            <td>
+                                <a [routerLink]="['/ver-producto', prod.IDPRODUCTO]"> 
+                                    <img class="img-fluid floating" width="150" height="150" [src]="server+ prod.IMAGEN"/>
+                                </a>
+                            </td>
+
+                            <td>{{prod.NOMBRE}}</td>
+                            <td>{{prod.DESCRIPCION}}</td>
+                            <td>{{prod.PRECIO | currency}}</td>
+                            
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+    <app-footer-bar></app-footer-bar>
+  </div>

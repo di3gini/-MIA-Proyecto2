@@ -32,6 +32,18 @@ export class ProductsService {
       headers: this.headers
     }).pipe(map(data=>data))
    }
+   getProductos(){
+    return this.httpClient.get( this.AUTH_SERVER +'/api/products/getProductos',
+    {
+      headers: this.headers
+    }).pipe(map(data=>data))
+   }
+   getBuscarPro(producto){
+    return this.httpClient.get( this.AUTH_SERVER +'/api/products/getBuscarProductos?producto='+producto,
+    {
+      headers: this.headers
+    }).pipe(map(data=>data))
+   }
   
   getCategoria(){
    return this.httpClient.get( this.AUTH_SERVER +'/api/products/getCategoria',
